@@ -79,3 +79,7 @@ int main(){
 
     return 0; //Siempre return 0 para main()
 }
+
+
+
+// 4 25 4 9 20 1 1 10 25 4 12 20 1 1 10 100 1 45 2 0 4 10 9 2 69 2 4 2 7
