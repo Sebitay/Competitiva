@@ -25,7 +25,6 @@ int main(){
                 status = 1;
                 ka = k+1;
             }
-
         }
         if(status == 1){
             cout<<"YES"<<endl;
