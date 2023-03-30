@@ -1,24 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int combinatoria(int x,int y){
-    int x_fact=1,y_fact=1,xy_fact=1;
-    for(int i=x;i>y;i--){
-        x_fact*=i;
-    }
-    for(int i=x-y;i>0;i--){
-        xy_fact*=i;
-    }
-    return x_fact/xy_fact;
-}
-
 int main(){
-    int n_watchmen,n_pares;
+    long long n_watchmen,n_pares;
     cin>>n_watchmen;
     vector<vector<int>> watchmen(n_watchmen, vector<int>(2));
-    map<int,int> watchmen_x;
-    map<int,int> watchmen_y;
-    map<vector<int>,int> watchmen_xy;
+    map<long long,long long> watchmen_x;
+    map<long long,long long> watchmen_y;
+    map<vector<int>,long long> watchmen_xy;
     vector<int> prueba(2);
     
     for(int i = 0;i<n_watchmen;i++){
