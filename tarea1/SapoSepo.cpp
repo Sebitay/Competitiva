@@ -26,6 +26,9 @@ int main(){
                 }
                 break;
             }
+            if((j==n_moscas-1)&&((j-i)>maximo)){
+                maximo = j-i+1;
+            }
             especies.insert(fila[j]);
             j+=1;
         }
