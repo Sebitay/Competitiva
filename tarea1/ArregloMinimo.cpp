@@ -6,28 +6,25 @@ int main(){
     cin>> n_datos;
     vector<int> a(n_datos);
     vector<int> b(n_datos);
-    vector<int> index(n_datos);
+    set<int> index;
     for(int i = 0; i<n_datos;i++){
         cin>>a[i];
-        index[i]=i;
+        index.insert(i);
     }
     for(int i=0; i<n_datos;i++){
         int minimo = -1;
         int j_min;
-        for(int j = 0;j<n_datos;j++){
-            if(index[j]==-1){
-                continue;
-            }
+        for(auto it = index.begin();it!=index.end();it++){
             if(i==0){
-                cin>>b[j];
+                cin>>b[*it];
             }
-            if(((a[i]+b[j])%n_datos<minimo)||(minimo==- 1)){
-                minimo = (a[i]+b[j])%n_datos;
-                j_min = j;
+            if(((a[i]+b[*it])%n_datos<minimo)||(minimo==- 1)){
+                minimo = (a[i]+b[*it])%n_datos;
+                j_min = *it;
             }
         }
         cout<< minimo<< " ";
-        index[j_min]=-1;
+        index.erase(j_min);
     }
     return 0;
 }

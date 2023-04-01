@@ -2,41 +2,31 @@
 using namespace std;
 
 int main(){
-    int n_moscas;
+    int n_moscas,choque = 0, max = 0,size;
     cin>>n_moscas;
-    vector<int> fila(n_moscas);
+    vector<int> moscas(n_moscas);
     for(int i = 0;i<n_moscas;i++){
-        cin>>fila[i];
+        cin>> moscas[i];
     }
-    int choque=fila[0];
-    int maximo =-1;
-    for(int i =0;i<n_moscas;i++){
+    for(int i = 0;i<n_moscas;i++){
         if(i>0){
-            if(fila[i-1]!=choque){
+            if(moscas[i-1]!=choque){
                 continue;
             }
         }
-        int j=i;
         set<int> especies;
-        while(j<n_moscas){
-            if(especies.count(fila[j])>0){
-                if((j-i)>maximo){
-                    maximo = j-i;
-                    choque = fila[j];
-                }
+        for(int j=i;j<n_moscas;j++){
+            if(especies.count(moscas[j])>0){
+                choque = moscas[j];
                 break;
             }
-            if((j==n_moscas-1)&&((j-i)>maximo)){
-                maximo = j-i+1;
-            }
-            especies.insert(fila[j]);
-            j+=1;
-        }  
+            especies.insert(moscas[j]);
+        }
+        size = especies.size();
+        if(max<size){
+            max = size;
+        }
     }
-    if(maximo!=-1){
-        cout<<maximo;
-    }else{
-        cout<<n_moscas;
-    }
+    cout<<max;
     return 0;
 }
