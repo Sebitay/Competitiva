@@ -2,29 +2,39 @@
 using namespace std;
 
 int main(){
-    int n_datos;
+    int n_datos, num;
     cin>> n_datos;
-    vector<int> a(n_datos);
-    vector<int> b(n_datos);
-    set<int> index;
+    queue<int> a;
+    multiset<int> b;
     for(int i = 0; i<n_datos;i++){
-        cin>>a[i];
-        index.insert(i);
+        cin>>num;
+        a.push(num);
     }
-    for(int i=0; i<n_datos;i++){
-        int minimo = -1;
-        int j_min;
-        for(auto it = index.begin();it!=index.end();it++){
-            if(i==0){
-                cin>>b[*it];
+    for(int i = 0; i<n_datos;i++){
+        cin>>num;
+        b.insert(num);
+    }
+    while(!a.empty()){
+        num = a.front();
+        int ideal = n_datos - num;
+        auto x = b.end();
+        x--;
+        //cout<<*x;
+        if((ideal<=*x)&&(ideal>*b.begin())){
+            while(ideal<=*x){
+                if(b.find(ideal)!=b.end()){
+                    cout<<(num+*b.find(ideal))%n_datos<<" ";
+                    b.erase(b.find(ideal));
+                    break;
+                }
+                ideal++;
             }
-            if(((a[i]+b[*it])%n_datos<minimo)||(minimo==- 1)){
-                minimo = (a[i]+b[*it])%n_datos;
-                j_min = *it;
-            }
+            a.pop();
+            continue;
         }
-        cout<< minimo<< " ";
-        index.erase(j_min);
+        cout<<(num+*b.begin())%n_datos<< " ";
+        b.erase(b.begin());
+        a.pop();
     }
     return 0;
 }
