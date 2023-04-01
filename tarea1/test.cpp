@@ -14,18 +14,3 @@ int main(){
     cout<<*x;
     return 0;
 }
-
-        if((ideal<=*x)&&(ideal>*b.begin())){
-            while(ideal<=*x){
-                if(b.find(ideal)!=b.end()){
-                    cout<<(num+*b.find(ideal))%n_datos<<" ";
-                    b.erase(b.find(ideal));
-                    break;
-                }
-                ideal++;
-            }
-            continue;
-        }
-        cout<<(num+*b.begin())%n_datos<< " ";
-        b.erase(b.begin());
-        a.pop();

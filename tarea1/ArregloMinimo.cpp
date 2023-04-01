@@ -19,7 +19,6 @@ int main(){
         int ideal = n_datos - num;
         auto x = b.end();
         x--;
-        //cout<<*x;
         if((ideal<=*x)&&(ideal>*b.begin())){
             while(ideal<=*x){
                 if(b.find(ideal)!=b.end()){
