@@ -27,8 +27,9 @@ int main(){
         pair<int,int> inicial = *por_visitar.begin();
         cola.push(inicial);
         while(!cola.empty()){
-            pair<int,int> u = cola.front();cola.pop();
-            cout<<'a';
+            pair<int,int> u = cola.front();
+            cola.pop();
+            cout<<'a';\
             for(pair<int,int> v : grafo[u]){
                 if(por_visitar.count(v) > 0){
                     cola.push(v);
